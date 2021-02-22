@@ -25,7 +25,7 @@ def restore(dest_ip, src_ip):
     dest_mac = get_mac(dest_ip)
     src_mac = get_mac((src_ip))
     packet = scapy.ARP(op=2, pdst=dest_ip, hwdst=dest_mac, psrc=src_ip,hwsrc=src_mac)
-    scapy.send(packet, verbose=False)
+    scapy.send(packet, count=4, verbose=False)
 
 
 def main(target_ip, spoof_ip):  # executes man-in-the-middle
