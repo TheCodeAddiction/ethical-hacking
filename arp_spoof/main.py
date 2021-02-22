@@ -30,6 +30,8 @@ def main(target_ip, spoof_ip):  # executes man-in-the-middle
         packet_counter += 2
         print("\r[+] Packets sent: " + str(packet_counter)),
         sys.stdout.flush()
+
+        # print("\r[+] Packets sent: " + str(packet_counter), end="") PYTHON 3 version
         time.sleep(2)
 
 
