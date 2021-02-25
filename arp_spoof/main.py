@@ -1,5 +1,5 @@
 # To be able to be Man in the middle, we need to allow data to flow through our system with port forwarding.
-# use command:
+# use command: echo 1 > /proc/sys/net/ipv4/ip_forward
 import scapy.all as scapy
 import argparse
 import time
