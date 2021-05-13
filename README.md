@@ -18,6 +18,13 @@ This is the start of my Ethical-hacking for-fun side prosjekt(s). I want to get 
   
 ## ARP Spoofer
   Spoofs the ARP table
+  ### How To Use It
+    - To be able to be Man in the middle, we need to allow data to flow through our system with port forwarding. 
+      echo 1 > /proc/sys/net/ipv4/ip_forward
+    - In the bottom of the code, you have to set the target ip and the spoof ip
+  ### TO-DO
+    - Target IP and spoof IP needs to be inputs not hardcoded. 
+    
   
 ## Packet Sniffer
   Analyses packages from a target (use ARP Spoofing tool). Scans for potential username and password and fetches the URL of the website the login info is typed into. Does not work   on a secure connection (obv...) 
