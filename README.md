@@ -1,6 +1,11 @@
 # Ethical-hacking
 This is the start of my Ethical-hacking for-fun side prosjekt(s). I want to get a better understanding about nettwork and a more hands-on approach to learning security by writing my own tools instead of using build-in tools in kali. 
 
+# SSLstrip 
+  A lot of these tools are based on being MiTM. MiTM are not very effective if the connection is encryped. For now, using SSLstrip (prebuild tool in kali) is the easiste fix. I will write my own SSLstriping tool at a later date. Here are some notes about how to use SSLstriping with the given MiTM tools. 
+  1. Run the MiTM tool of your choice. In this github repo, the ARP spoofer is easy to use if you are on the same nettwork as your target. 
+  2. Start [SSLstriping](https://github.com/moxie0/sslstrip) with the command  <code> sslstrip </code> 
+
 ## Network Scanner
   Does an ARP Request to scan the nettwork for potensital targets. Fetches IP and MAC addr
 
