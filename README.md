@@ -1,5 +1,6 @@
 # Ethical-hacking
 This is the start of my Ethical-hacking for-fun side prosjekt(s). I want to get a better understanding about nettwork and a more hands-on approach to learning security by writing my own tools instead of using build-in tools in kali. 
+This repo should not be used outside of educational purposes. Any malicouse use of my code is strictly prohibited. This is purely a fun and educational side project and should only be used internally against your own machines or machines that you have permission to test on. 
 
 # SSLstrip 
   A lot of these tools are based on being MiTM. MiTM are not very effective if the connection is encryped. For now, using SSLstrip (prebuild tool in kali) is the easiste fix. I will write my own SSLstriping tool at a later date. Here are some notes about how to use SSLstriping with the given MiTM tools. 
