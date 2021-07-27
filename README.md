@@ -10,25 +10,26 @@ Make sure you have netfilterqueue installed. pip install netfilterqueue
 - iptables -I FORWARD -j NFQUEUE --queue-num 0 - Puts all forwarding packages into a que so that they can be modified or sniffed. I
 If you are testing this locally, change the chain from FORWARD to output and input.
 NB: remember to flush your iptables when you are done. iptables --flush
-
+___________________________________________________________________________________________________________________________
 # SSLstrip 
   A lot of these tools are based on being MiTM. MiTM are not very effective if the connection is encryped. For now, using SSLstrip (prebuild tool in kali) is the easiste fix. I will write my own SSLstriping tool at a later date. Here are some notes about how to use SSLstriping with the given MiTM tools. 
   1. Run the MiTM tool of your choice. In this github repo, the ARP spoofer is easy to use if you are on the same nettwork as your target. 
   2. Start [SSLstriping](https://github.com/moxie0/sslstrip) with the command  <code> sslstrip </code> 
-  3. Change your IPtables so that the data from your target goes through port 10000 (the port sslstrip is listening to)
+  3. Change your IPtables so that the data from your target goes through port 10000 (the default port sslstrip is listening to)
   
 <code>iptables -t nat -A PREROUTING -p tcp --destion-port 80 -j REDIRECT --to-port 10000</code>
   4. Run whatever program you want to use on the unecrypted connection
 
+___________________________________________________________________________________________________________________________
 ## Network Scanner
   Does an ARP Request to scan the nettwork for potensital targets. Fetches IP and MAC addr 
   ### How To Use It
 - Run the code and add the -t or --target flag, followed by the IP range that you want to scan. For example: 
   	<code> python3 nettwork_scanner.py -t 10.0.2.1/24</code>
-
+___________________________________________________________________________________________________________________________
 ## Mac Addr Spoofer
   Changes the MAC addr of the computer
-  
+___________________________________________________________________________________________________________________________
 ## ARP Spoofer
   Spoofs the ARP table
 ### Function 
