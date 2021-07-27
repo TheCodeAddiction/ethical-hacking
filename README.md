@@ -6,10 +6,10 @@ This repo should not be used outside of educational purposes. Any malicouse use 
 Make sure you have scapy installed. pip install scapy. 
 Make sure you have netfilterqueue installed. pip install netfilterqueue 
 ###  Usefull commands: 
-	- echo 1 > /proc/sys/net/ipv4/ip_forward - This will turn on ip_forwarding, allowing you to be MiTM 
-	- iptables -I FORWARD -j NFQUEUE --queue-num 0 - Puts all forwarding packages into a que so that they can be modified or sniffed. I
-	If you are testing this locally, change the chain from FORWARD to output and input.
-	NB: remember to flush your iptables when you are done. iptables --flush
+- echo 1 > /proc/sys/net/ipv4/ip_forward - This will turn on ip_forwarding, allowing you to be MiTM 
+- iptables -I FORWARD -j NFQUEUE --queue-num 0 - Puts all forwarding packages into a que so that they can be modified or sniffed. I
+If you are testing this locally, change the chain from FORWARD to output and input.
+NB: remember to flush your iptables when you are done. iptables --flush
 
 # SSLstrip 
   A lot of these tools are based on being MiTM. MiTM are not very effective if the connection is encryped. For now, using SSLstrip (prebuild tool in kali) is the easiste fix. I will write my own SSLstriping tool at a later date. Here are some notes about how to use SSLstriping with the given MiTM tools. 
