@@ -23,8 +23,8 @@ NB: remember to flush your iptables when you are done. iptables --flush
 ## Network Scanner
   Does an ARP Request to scan the nettwork for potensital targets. Fetches IP and MAC addr 
   ### How To Use It
-  	- Run the code and add the -t or --target flag, followed by the IP range that you want to scan. For example: 
-  		<code> python3 nettwork_scanner.py -t 10.0.2.1/24</code>
+- Run the code and add the -t or --target flag, followed by the IP range that you want to scan. For example: 
+  	<code> python3 nettwork_scanner.py -t 10.0.2.1/24</code>
 
 ## Mac Addr Spoofer
   Changes the MAC addr of the computer
@@ -37,12 +37,12 @@ NB: remember to flush your iptables when you are done. iptables --flush
   		- The gateway will overwrite their ARP table switching the targets MAC addr, with out MAC addrs. Routing all traffic intedned to the target, to us. 
   
   ### How To Use It
-    - To be able to be Man in the middle, we need to allow data to flow through our system with port forwarding(Linux). 
-      echo 1 > /proc/sys/net/ipv4/ip_forward
-   - To run the code use the main() function. This takes two inputs, a target_ip and spoof_ip. The target IP is the IP of our target. The spoof IP is the IP of the gateway that we are pretending to be.
+- To be able to be Man in the middle, we need to allow data to flow through our system with port forwarding(Linux). 
+<code>echo 1 > /proc/sys/net/ipv4/ip_forward</code>
+- To run the code use the main() function. This takes two inputs, a target_ip and spoof_ip. The target IP is the IP of our target. The spoof IP is the IP of the gateway that we are pretending to be.
    
   ### TO-DO
-    - Target IP and spoof IP needs to be inputs not hardcoded. 
+- Target IP and spoof IP needs to be inputs not hardcoded. 
     
   
 ## Packet Sniffer
