@@ -31,7 +31,7 @@ NB: remember to flush your iptables when you are done. iptables --flush
   
 ## ARP Spoofer
   Spoofs the ARP table
-  ### Function 
+### Function 
 This program poisions the ARP table by abusing the ARP protocol. Given the IP of a target and the IP of the gateway we will send an ARP response poisioning their ARP tables by doing the following: 
 - The target will overwrite their ARP table swiching the gateways MAC addr, with out MAC addrs. Routing all traffic to the gateway, to us. 
 - The gateway will overwrite their ARP table switching the targets MAC addr, with out MAC addrs. Routing all traffic intedned to the target, to us. 
