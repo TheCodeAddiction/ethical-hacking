@@ -45,15 +45,16 @@ This program poisions the ARP table by abusing the ARP protocol. Given the IP of
   ### TO-DO
 - Target IP and spoof IP needs to be inputs not hardcoded. 
     
-  
+___________________________________________________________________________________________________________________________
 ## Packet Sniffer
   Analyses packages from a target (use ARP Spoofing tool). Scans for potential username and password and fetches the URL of the website the login info is typed into. Does not work on a secure connection (obv...) 
   ### How To Use
   	Run the program and it will start sniffing incoming packages on port 80 (http). It checks for potensial username/password/email field. 
-
+___________________________________________________________________________________________________________________________
 ## DNS Spoofer
-  Spoofs the DNS record of the target (attack needs to be MiTM. Use ARP spoofer). If the target goes to a defined webiste, he will be redirected to the kali machines local host)
+  Spoofs the DNS record of the target  (attackneeds to be MiTM. Use ARP spoofer). If the target goes to a defined webiste, he will be redirected to the kali machines local host)
 
+___________________________________________________________________________________________________________________________
 ## File Interceptor
   Detects when the target is downloading a file. Currently only detects .exe. It allows the attacker to replace the file that the target wants to download with a file from another   website. 
   ### TO-DO:
