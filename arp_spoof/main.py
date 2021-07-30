@@ -45,4 +45,4 @@ def main(target_ip, spoof_ip):  # executes man-in-the-middle
         restore(spoof_ip,target_ip)
         print("[+] restored ARP tables for " + target_ip + " and " + spoof_ip)
 
-main("10.0.2.15", "10.0.2.1")
+main("10.0.2.4", "10.0.2.1")
